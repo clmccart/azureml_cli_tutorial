@@ -33,7 +33,7 @@ You can check that it has been created by running the following ocmmand:
 az ml computetarget list -w <workspace name> -g <resource group name>
 ```
 
-## create a python script run
+## Create a python script run
 First, we will need to write a script that we want to execute on the remote compute target that we just created.
 You can write your own script using vscode or you IDE of choice and save it at the root directory from which you are running your CLI commands.
 You can also just use the [train.py](train.py) script included in this repo.
