@@ -1,7 +1,7 @@
 {
     "entryScript": "score.py",
     "runtime": "python",
-    "condaFile": "conda_dependencies.yml",
+    "condaFile": ".azureml/conda_dependencies.yml",
     "extraDockerfileSteps": null,
     "sourceDirectory": null,
     "enableGpu": false,
