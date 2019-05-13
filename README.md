@@ -101,7 +101,7 @@ az ml model deploy  ^
 
 The output from this should look like this:
 
-<img src="media/image.png" alt="drawing" width="500" height="200"/>
+<img src="./media/image.png" alt="drawing" width="500" height="200"/>
 
 Once you have your scoring uri, you can test it using Postman (for example)
 
