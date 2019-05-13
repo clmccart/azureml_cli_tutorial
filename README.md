@@ -68,7 +68,7 @@ You can check in the portal under the "Models" tab in your workspace on by using
 ```console 
 az ml model list
 ```
-<span style="color:red">******all info below this point is incomplete***</span>
+
 ## Deploy the registered model
 Before you can deploy the model as a webservice, you need to create:
 * A scoring script:
@@ -80,10 +80,43 @@ Before you can deploy the model as a webservice, you need to create:
 * A deploymentconfig.json file:
     * That specifies the metadata of your deployment
     * You can create your own deploymentconfig.json file or use the [deploymentconfig.json](.azureml/deploymentconfig.json) file provided in this repo.
-
-Once you have these files, run this CLI command:
+* An AKS cluster to use for deployment:
 ```console
-az ml model deploy  -n <name that you want to give your webservice> -m <name of registered model>:<model version number> --ic <path to inferenceconfig.json> --dc <path to deploymentconfig.json>
+az ml computetarget create aks ^
+--name <name for your aks cluster> ^
+--location <location you want it to reside in> ^
+--resource-group <name of your resource group> ^
+--workspace-name <the workspace you are working in>
 ```
 
+Once you have all of these things, run this CLI command:
+```console
+az ml model deploy  ^
+--name <name that you want to give your webservice> ^
+--model <name of registered model>:<model version number> ^
+--inference-config-file <path to inferenceconfig.json> ^
+--deploy-config-file <path to deploymentconfig.json> ^
+--computetarget <name of your aks cluster>
+```
+
+The output from this should look like this:
+
+<img src="media/image.png" alt="drawing" width="500" height="200"/>
+
+Once you have your scoring uri, you can test it using Postman (for example)
+
+Feel free to send the following data:
+```number 
+{"data": [[5.1, 3.5, 1.4, 0.2],[4.9, 3.0,1.4, 0.2],[4.7, 3.2, 1.3, 0.2], [6.5, 3.0,  5.2, 2.0],[6.2, 3.4, 5.4, 2.3]]}
+```
+And expect to get the following output:
+```number
+[
+    0,
+    0,
+    0,
+    2,
+    2
+]
+```
 
