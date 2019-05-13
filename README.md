@@ -103,20 +103,33 @@ The output from this should look like this:
 
 <img src="media/image.png" alt="drawing" width="500" height="200"/>
 
-Once you have your scoring uri, you can test it using Postman (for example)
+Once you have your scoring uri, you can validate your deployed service via a POST request
+* To get keys for sendings requests, run the following command:
+    ```console
+    az ml service get-keys --name <name of service>
+    ```
+* Use the following data for a test (if you used the iris data set):
+    ```json 
+    {"data": [[5.1, 3.5, 1.4, 0.2],
+              [4.9, 3.0, 1.4, 0.2],
+              [4.7, 3.2, 1.3, 0.2], 
+              [6.5, 3.0, 5.2, 2.0],
+              [6.2, 3.4, 5.4, 2.3]]
+    }
+    ```
+    And expect to get the following output:
+    ```number
+    [
+        0,
+        0,
+        0,
+        2,
+        2
+    ]
+    ```
 
-Feel free to send the following data:
-```number 
-{"data": [[5.1, 3.5, 1.4, 0.2],[4.9, 3.0,1.4, 0.2],[4.7, 3.2, 1.3, 0.2], [6.5, 3.0,  5.2, 2.0],[6.2, 3.4, 5.4, 2.3]]}
-```
-And expect to get the following output:
-```number
-[
-    0,
-    0,
-    0,
-    2,
-    2
-]
+You can also check the status of your deployed model with the following CLI command:
+```console
+az ml service show --name <name of service>
 ```
 
