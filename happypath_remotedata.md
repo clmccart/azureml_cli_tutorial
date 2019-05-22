@@ -1,5 +1,7 @@
 # Happy Path
 This walkthrough tutorial will show the happy path for using the AzureML CLI to train and deploy a model using remote data
+
+<span style="color:red">*BOOKMARK*</span>
 ## Create a new workspace associated with a pre-existing resource group
 ```console
 az ml workspace create -w <workspace name> -g <resource group>
