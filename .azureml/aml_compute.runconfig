@@ -103,13 +103,13 @@ dataReferences:
 # Name of the datastore.
     dataStoreName: workspaceblobstore
 # relative path on the datastore.
-    pathOnDataStore: attrition/output
+    pathOnDataStore: data
 # operation on the datastore, mount, download, upload
-    mode: download
+    mode: mount
 # whether to overwrite the data if existing
     overwrite: false
 # the path on the compute target.
-    pathOnCompute: /temp
+    pathOnCompute: ./
 # Project share datastore reference.
 sourceDirectoryDataStore:
 # AmlCompute details.
