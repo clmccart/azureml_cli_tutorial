@@ -5,7 +5,7 @@ This walkthrough tutorial will show the happy path for using the AzureML CLI to 
 az ml workspace create -w <workspace name> -g <resource group>
 ```
 
-## Attach current working directory to that workspace\
+## Attach current working directory to that workspace
 ```console
 az ml folder attach -w marinecorpsamlws -g marinecorps
 ```
@@ -41,9 +41,9 @@ In this folder, you should also find two .runconfig files. These should serve yo
 
 Now, run the command in the CLI to kick off the script run on your remote compute target
 ```console 
-az ml run submit-script -c <name of your .runconfig file*> -e <name of experiment*> <path to the script that you want to run>
+az ml run submit-script -c <name of your .runconfig file*> -e <name of experiment**> <path to the script that you want to run>
 ```
-*Note: if you provide an experiment name that does not already exist in the workspace, a new experiment will be created
+**Note: if you provide an experiment name that does not already exist in the workspace, a new experiment will be created.  
 *Note: when passing the .runconfig parameter, do not include the file extension. For example, if using the runconfig file provided, your CLI command would look like this:
 ```console
 az ml run submit-script -c aml_compute -e ...
