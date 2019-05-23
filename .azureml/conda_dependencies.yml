@@ -21,7 +21,4 @@ dependencies:
 
   - azureml-defaults
   - scikit-learn
-  - numpy
-  - pickle-mixin
-
-  
+  - pandas
