@@ -101,7 +101,7 @@ mpi:
 dataReferences:
   workspaceblobstore:
 # Name of the datastore.
-    dataStoreName: workspaceblobstore
+    dataStoreName: workspacefilestore
 # relative path on the datastore.
     pathOnDataStore: data
 # operation on the datastore, mount, download, upload

@@ -25,7 +25,7 @@ col_names = ['sepal_length',
             'petal_length',	
             'petal_width',	
             'species']
-iris = pd.read_csv(path, names=col_names)
+iris = pd.read_csv(path, names=col_names, skiprows=1)
 print(iris.head())
 y = iris['species']
 X = iris.drop(labels=['species'], axis=1)

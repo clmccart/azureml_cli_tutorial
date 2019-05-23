@@ -55,7 +55,7 @@ If you choose to write your own .runconfig file, make sure you specify your Data
 dataReferences:
   workspaceblobstore:
 # Name of the datastore.
-    dataStoreName: workspaceblobstore
+    dataStoreName: workspacefilestore
 # relative path on the datastore.
     pathOnDataStore: data
 # operation on the datastore, mount, download, upload
@@ -69,8 +69,10 @@ dataReferences:
 
 Now, run the command in the CLI to kick off the script run on your remote compute target
 ```console 
-az ml run submit-script -c <name of your .runconfig file*> -e <name of experiment**> <path to the script that you want to run>
+
+az ml run submit-script -c <name of your .runconfig file*> -e <name of experiment**> <path to the script that you want to run> --data-folder*** <directory that contains your data on the datastore>
 ```
+***Note: This is a parameter for your training script. You can have as many parameters as you want. Make sure the parameters you put in this command are mirrored in your training script.
 **Note: if you provide an experiment name that does not already exist in the workspace, a new experiment will be created.  
 *Note: when passing the .runconfig parameter, do not include the file extension. For example, if using the runconfig file provided, your CLI command would look like this:
 ```console
