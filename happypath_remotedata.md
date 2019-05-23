@@ -65,11 +65,8 @@ dataReferences:
 # the path on the compute target.
     pathOnCompute: ./
 ```
-<span style="color:red">*BOOKMARK*</span>
-
 Now, run the command in the CLI to kick off the script run on your remote compute target
 ```console 
-
 az ml run submit-script -c <name of your .runconfig file*> -e <name of experiment**> <path to the script that you want to run> --data-folder*** <directory that contains your data on the datastore>
 ```
 ***Note: This is a parameter for your training script. You can have as many parameters as you want. Make sure the parameters you put in this command are mirrored in your training script.
@@ -78,6 +75,7 @@ az ml run submit-script -c <name of your .runconfig file*> -e <name of experimen
 ```console
 az ml run submit-script -c aml_compute -e ...
 ``` 
+<span style="color:red">*BOOKMARK*</span>
 
 ## Navigate to the portal to see your experiment running
 You can now see your experiment running in ms.portal.azure.com under your workspace
