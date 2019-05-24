@@ -72,12 +72,13 @@ Before you can deploy the model as a webservice, you need to create:
 * A scoring script:
     * This script must have an init() function that loads the model and a run() function that takes in json data as a parameter and returns the prediction in json format.
     * You can create your own scoring script or use the [score.py](score.py) file provided in this repo. 
+        * Note: if you use the score.py script provided, update line 13 with the name of your registered model.
 * An inferenceconfig.json file:
     * That specifies the name of your scoring script and any dependencies
     * You can create your own inferenceconfig.json file or use the [inferenceconfig.json](.azureml/inferenceconfig.json) file provided in this repo.
 * A deploymentconfig.json file:
     * That specifies the metadata of your deployment
-    * You can create your own deploymentconfig.json file or use the [deploymentconfig.json](.azureml/deploymentconfig.json) file provided in this repo.
+    * You can create your own deploymentconfig.json file or use the [deploy.json](.azureml/deploy.json) file provided in this repo.
 * An AKS cluster to use for deployment:
 ```console
 az ml computetarget create aks ^
@@ -86,6 +87,7 @@ az ml computetarget create aks ^
 --resource-group <name of your resource group> ^
 --workspace-name <the workspace you are working in>
 ```
+Make sure to update line 3 in .azureml/deploy.json with the name of your newly created compute target.
 
 Once you have all of these things, run this CLI command:
 ```console
@@ -94,7 +96,7 @@ az ml model deploy  ^
 --model <name of registered model>:<model version number> ^
 --inference-config-file <path to inferenceconfig.json> ^
 --deploy-config-file <path to deploymentconfig.json> ^
---computetarget <name of your aks cluster>
+--compute-target <name of your aks cluster>
 ```
 
 The output from this should look like this:
