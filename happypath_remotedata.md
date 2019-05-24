@@ -29,7 +29,13 @@ Resource creation submitted successfully
 You can check that it has been created by running the following command:
 ```console
 az ml computetarget list -w <workspace name> -g <resource group name>
+```  
+Note:  You will need to edit aml_compute.runconfig in the .azureml folder with the name of your compute target in the "target" parameter of the file:
+```console
+# The name of the compute target to use for this run.
+target: <Insert your compute target name here--case sensitive> 
 ```
+
 ## Register a Datastore
 In order to make sure your data is visible within the workspace context, you will need to register it as a Datastore. You can do this by attaching a storage account that you already have with your data in it to the workspace or by uploading your data to the default Datastore associated with your workspace.  
 1) To attach a pre-existing blob:

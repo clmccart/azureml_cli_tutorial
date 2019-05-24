@@ -20,11 +20,7 @@ az ml workspace create -n <workspace name> -g <resource group> -l <azure region>
 ```console
 az ml folder attach -w <workspace name> -g <resource group>
 ```
-Note:  You will need to edit aml_compute.runconfig in the .azureml folder with the name of your compute target in the "target" parameter of the file:
-```console
-# The name of the compute target to use for this run.
-target: <Insert your compute target name here--case sensitive> 
-```
+
 ## Create a low priority AzureML compute target 
 ```console
 az ml computetarget create amlcompute ^
@@ -44,6 +40,11 @@ Resource creation submitted successfully
 You can check that it has been created by running the following ocmmand:
 ```console
 az ml computetarget list -w <workspace name> -g <resource group name>
+```  
+Note:  You will need to edit aml_compute.runconfig in the .azureml folder with the name of your compute target in the "target" parameter of the file:
+```console
+# The name of the compute target to use for this run.
+target: <Insert your compute target name here--case sensitive> 
 ```
 
 ## Create a python script run
